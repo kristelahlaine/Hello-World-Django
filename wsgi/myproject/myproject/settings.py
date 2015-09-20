@@ -1,13 +1,3 @@
-"""
-Django settings for myproject project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.8/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.8/ref/settings/
-"""
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 DJ_PROJECT_DIR = os.path.dirname(__file__)
@@ -34,6 +24,7 @@ from socket import gethostname
 ALLOWED_HOSTS = [
     gethostname(), # For internal OpenShift load balancer security purposes.
     os.environ.get('OPENSHIFT_APP_DNS'), # Dynamically map to the OpenShift gear name.
+    '*',
     #'example.com', # First DNS alias (set up in the app)
     #'www.example.com', # Second DNS alias (set up in the app)
 ]
@@ -48,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'helloworld',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,7 +90,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Manila'
 
 USE_I18N = True
 
